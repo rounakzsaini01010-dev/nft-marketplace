@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Compilation & Build outputs
+dist/
+bundle/
+build/
+
+# Hardhat Build Artifacts
+/artifacts
+/cache
+/types
+/coverage
+/.gas-snapshot
+/snapshots
+
+# Laravel storage & cache
+backend/storage/*.key
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/logs/*
+!backend/storage/framework/cache/.gitignore
+!backend/storage/framework/sessions/.gitignore
+!backend/storage/framework/views/.gitignore
+!backend/storage/logs/.gitignore
+
+# Archives & Temporary files
+*.zip
+*.tar.gz
+.DS_Store
+
+# Agent & IDE configs
+.agents/
+.claude/
+

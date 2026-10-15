@@ -1,0 +1,23 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="blur7"><feGaussianBlur stdDeviation="0.5"/></filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#g7)"/>
+  <rect width="500" height="500" fill="black" fill-opacity="0.12"/>
+  <g filter="url(#blur7)">
+    <path d="M0 18.92113998066634 Q 125 -21.07886001933366 250 18.92113998066634 T 500 18.92113998066634" stroke="#7c3aed" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 75.63972123898566 Q 125 35.63972123898566 250 75.63972123898566 T 500 75.63972123898566" stroke="#2563eb" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 144.55640081316233 Q 125 104.55640081316233 250 144.55640081316233 T 500 144.55640081316233" stroke="#06b6d4" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 197.53052805550396 Q 125 157.53052805550396 250 197.53052805550396 T 500 197.53052805550396" stroke="#7c3aed" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 271.6541372379288 Q 125 231.6541372379288 250 271.6541372379288 T 500 271.6541372379288" stroke="#2563eb" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 340.21795375738293 Q 125 300.21795375738293 250 340.21795375738293 T 500 340.21795375738293" stroke="#06b6d4" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 407.5417756708339 Q 125 367.5417756708339 250 407.5417756708339 T 500 407.5417756708339" stroke="#7c3aed" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+<path d="M0 465.87587234098464 Q 125 425.87587234098464 250 465.87587234098464 T 500 465.87587234098464" stroke="#2563eb" stroke-width="10" fill="none" stroke-opacity="0.45"/>
+  </g>
+  <rect width="500" height="500" fill="url(#g7)" fill-opacity="0.06"/>
+</svg>
