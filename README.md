@@ -1,57 +1,177 @@
-# Sample Hardhat 3 Project (`mocha` and `ethers`)
+# 🚀 NFT Marketplace — Full-Stack Web3 DApp
 
-This project showcases a Hardhat 3 project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+A modern, decentralized NFT Marketplace built for creating, listing, and trading digital collectibles on the blockchain with USDT-based payments. Features full on-chain smart contracts, a powerful Laravel REST API backend, and a reactive React/Vite web application with rich analytics.
 
-To learn more about Hardhat 3, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3](https://hardhat.org/hardhat3-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+---
 
-## Project Overview
+## 🌟 Key Features
 
-This example project includes:
+- **🎨 NFT Minting**: Mint custom ERC-721 NFTs with metadata, attributes, and image uploads.
+- **🛒 Decentralized Marketplace**: Buy and sell NFTs securely with USDT payments and automatic platform fee distribution.
+- **📊 Interactive Dashboard**: Real-time sales statistics, portfolio tracking, volume metrics, and interactive charts (ApexCharts).
+- **👛 Multi-Wallet Support**: Seamless connection with MetaMask, Coinbase Wallet, Rainbow, etc. via RainbowKit & Wagmi.
+- **🌓 Dark & Light Mode**: Sleek UI with modern glassmorphism, responsive navigation, and smooth Framer Motion micro-animations.
+- **⚡ High-Performance Backend**: Off-chain indexer, metadata caching, and RESTful API endpoints powered by Laravel.
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+---
 
-## Usage
+## 🛠️ Tech Stack
 
-### Running Tests
+### 🔗 Smart Contracts (Blockchain)
+- **Solidity** (`^0.8.20`)
+- **Hardhat 3** (Testing, compilation, deployment)
+- **OpenZeppelin Contracts** (`ERC721`, `IERC20`, `Ownable`, `ReentrancyGuard`, `SafeERC20`)
+- **Ethers.js / Viem**
 
-To run all the tests in the project, execute the following command:
+### 💻 Frontend
+- **React 19** + **Vite**
+- **Tailwind CSS** + **Framer Motion** (Styling & Animations)
+- **Wagmi** + **Viem** + **RainbowKit** (Web3 interactions)
+- **Zustand** (Global state management)
+- **TanStack React Query** (Async data fetching)
+- **ApexCharts** (Analytics & visualization)
 
-```shell
+### ⚙️ Backend (API)
+- **PHP 8.2+ / Laravel**
+- **MySQL / SQLite**
+- **RESTful API** (NFT metadata caching, wallet activity tracking)
+
+---
+
+## 📂 Project Architecture
+
+```
+├── contracts/               # Solidity Smart Contracts
+│   ├── NFTCollection.sol    # ERC-721 NFT Minting Contract
+│   └── NFTMarketplace.sol   # Marketplace with USDT settlement & Escrow
+│
+├── frontend/                # React + Vite Frontend App
+│   ├── src/
+│   │   ├── components/      # UI components (Radix UI, landing sections)
+│   │   ├── features/        # Marketplace, Minting, Dashboard & Charts
+│   │   ├── hooks/           # Web3 contracts & custom React hooks
+│   │   ├── routes/          # App routing & pages
+│   │   └── store/           # Zustand state management
+│   └── package.json
+│
+├── backend/                 # Laravel REST API
+│   ├── app/                 # Controllers, Models, Middleware
+│   ├── database/            # Migrations & Seeders
+│   ├── routes/api.php       # API endpoints
+│   └── composer.json
+│
+├── scripts/                 # Hardhat deployment scripts
+├── hardhat.config.ts        # Hardhat configuration
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) (v18+)
+- [PHP](https://www.php.net/) (v8.2+) & [Composer](https://getcomposer.org/)
+- [MetaMask](https://metamask.io/) or any EVM Web3 wallet
+
+---
+
+### 2. Smart Contracts Setup
+
+```bash
+# Install root dependencies
+npm install
+
+# Compile contracts
+npx hardhat compile
+
+# Run tests
 npx hardhat test
+
+# Deploy to local or testnet (e.g., Sepolia)
+npx hardhat run scripts/deployMarketplace.ts --network <network_name>
 ```
 
-You can also selectively run the Solidity or `mocha` tests:
+---
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
+### 3. Backend Setup (Laravel)
+
+```bash
+cd backend
+
+# Install PHP dependencies
+composer install
+
+# Set up environment
+cp .env.example .env
+php artisan key:generate
+
+# Run database migrations
+php artisan migrate
+
+# Start Laravel development server
+php artisan serve
 ```
 
-### Make a deployment to Sepolia
+Backend will run at: `http://127.0.0.1:8000`
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+---
 
-To run the deployment to a local chain:
+### 4. Frontend Setup (React + Vite)
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+
+# Start frontend dev server
+npm run dev
 ```
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
+Frontend will run at: `http://localhost:5173`
 
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
+---
 
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
+## ⚙️ Environment Variables
 
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
+### Root / Contracts (`.env`)
+```env
+SEPOLIA_RPC_URL=your_rpc_url
+PRIVATE_KEY=your_wallet_private_key
+ETHERSCAN_API_KEY=your_etherscan_key
 ```
 
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
+### Frontend (`frontend/.env`)
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000/api
+VITE_CHAIN_ID=11155111
+VITE_NFT_CONTRACT_ADDRESS=0x...
+VITE_MARKETPLACE_CONTRACT_ADDRESS=0x...
+VITE_USDT_CONTRACT_ADDRESS=0x...
 ```
+
+---
+
+## 📜 Smart Contract Overview
+
+| Contract | Description | Standard |
+| :--- | :--- | :--- |
+| **`NFTCollection.sol`** | Minting digital collectibles with custom token URI & royalty options | ERC-721 |
+| **`NFTMarketplace.sol`** | Listing, buying, price adjustment, and platform fees in USDT | Escrow / Marketplace |
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/rounakzsaini01010-dev/nft-marketplace/issues).
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
